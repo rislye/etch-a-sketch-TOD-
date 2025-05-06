@@ -1,23 +1,22 @@
-let container = document.querySelector('.container');
-let button = document.querySelector('button');
-let input = document.querySelector('#inputRange');
-let value = document.querySelector('.value');
-let resetButton = document.querySelector('#resetButton');
-let rainbow = document.querySelector('.rainbow');
-let black = document.querySelector('.black');
+const container = document.querySelector('.container');
+const button = document.querySelector('button');
+const input = document.querySelector('#inputRange');
+const value = document.querySelector('.value');
+const resetButton = document.querySelector('#resetButton');
+const rainbow = document.querySelector('.rainbow');
+const black = document.querySelector('.black');
 
-function randomRgbaString (alpha) {
+function randomRgbaString (a) {
     let r = Math.floor(Math.random() * 255)
     let g = Math.floor(Math.random() * 255)
     let b = Math.floor(Math.random() * 255)
-    let a = alpha
     return `rgba(${r},${g},${b},${a})`
 }
 
 // input range display value
 value.textContent = `GRID : ${input.value}x${input.value}`
 input.addEventListener('click', () => {
-    value.textContent = `GRID : ${input.value}x${input.value}`
+value.textContent = `GRID : ${input.value}x${input.value}`
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     } 
@@ -26,13 +25,14 @@ createRow()
 
 function createRow() {
     const gridSizeChoice = input.value * input.value;
-    const gridHeight = 960 / input.value;
+    const gridHeight = 960 / input.value - 2;
     for(let i = 0; i < gridSizeChoice; i++) {
         const newDiv = document.createElement("div");
         container.appendChild(newDiv);
         newDiv.classList.add('sketch');
         newDiv.style.height = `${(parseInt(gridHeight))}px`;
         newDiv.style.width = `${(parseInt(gridHeight))}px`;
+        newDiv.style.border = "1px solid rgb(0, 0, 0)";
             rainbow.addEventListener('click', () => {
             newDiv.addEventListener('mouseover', () => {
                 newDiv.style.backgroundColor= randomRgbaString(1);  
@@ -40,8 +40,10 @@ function createRow() {
             })
             black.addEventListener('click', () => {
                 newDiv.addEventListener('mouseover', () => {
+                    
                     newDiv.style.backgroundColor= 'black';   
                 })
                 })
     }
 }
+createRow()
