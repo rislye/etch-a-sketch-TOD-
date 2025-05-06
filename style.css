@@ -1,0 +1,21 @@
+
+.canvas {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    height: 960px;
+    width: 960px;
+    background-color: antiquewhite;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.sketch {  
+    height: 10px;
+    width: 10px;
+    padding: 0;
+    margin: 0;
+}
