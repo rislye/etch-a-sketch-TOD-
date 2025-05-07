@@ -26,6 +26,7 @@ createRow()
 function createRow() {
     const gridSizeChoice = input.value * input.value;
     const gridHeight = 960 / input.value - 2;
+    
     for(let i = 0; i < gridSizeChoice; i++) {
         const newDiv = document.createElement("div");
         container.appendChild(newDiv);
@@ -33,17 +34,19 @@ function createRow() {
         newDiv.style.height = `${(parseInt(gridHeight))}px`;
         newDiv.style.width = `${(parseInt(gridHeight))}px`;
         newDiv.style.border = "1px solid rgb(0, 0, 0)";
+            //rainbow color tiles
             rainbow.addEventListener('click', () => {
-            newDiv.addEventListener('mouseover', () => {
-                newDiv.style.backgroundColor= randomRgbaString(1);  
-            })
-            })
-            black.addEventListener('click', () => {
                 newDiv.addEventListener('mouseover', () => {
-                    
+                    newDiv.style.backgroundColor= randomRgbaString(1);   
+            })
+            })
+            //black color tiles
+            black.addEventListener('click', () => {
+                newDiv.addEventListener('mouseover', () => {   
                     newDiv.style.backgroundColor= 'black';   
                 })
                 })
     }
 }
 createRow()
+
